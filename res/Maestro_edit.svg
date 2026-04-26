@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="345.6"
+   height="485.8"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="Maestro_edit.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.6117744"
+     inkscape:cx="172.79093"
+     inkscape:cy="242.89999"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <rect
+     width="345.6"
+     height="485.8"
+     fill="#1a1a2e"
+     id="rect1"
+     style="fill:#65300a;fill-opacity:1" />
+  <line
+     x1="11.861302"
+     y1="23.598724"
+     x2="336.8613"
+     y2="23.598724"
+     stroke="#444466"
+     stroke-width="1"
+     id="line1"
+     style="stroke:#f7e59c;stroke-opacity:1" />
+  <line
+     x1="8.1386976"
+     y1="463.88303"
+     x2="333.1387"
+     y2="463.88303"
+     stroke="#444466"
+     stroke-width="1"
+     id="line2"
+     style="stroke:#f6dd93;stroke-opacity:1" />
+  <text
+     x="172"
+     y="18"
+     text-anchor="middle"
+     fill="#8888cc"
+     font-size="14"
+     font-family="Arial"
+     font-weight="bold"
+     id="text2"
+     style="stroke:#f4842a;stroke-opacity:1;fill:#d78614;fill-opacity:1">MAESTRO</text>
+  <text
+     x="170.75912"
+     y="476.68607"
+     text-anchor="middle"
+     fill="#555577"
+     font-size="10px"
+     font-family="Arial"
+     id="text3"
+     style="fill:#f5c6a3;fill-opacity:1;stroke:#f3be77;stroke-opacity:1">BCNmodular</text>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "slug": "BCNmodular",
+  "name": "BCNmodular",
+  "version": "2.0.0",
+  "license": "GPL-3.0-or-later",
+  "brand": "BCNmodular",
+  "author": "BCNmodular",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "modules": [
+    {
+      "slug": "Maestro",
+      "name": "Maestro",
+      "description": "Probabilistic Voice Router, Mixer & Sequencer",
+      "tags": ["Random", "Switch", "Controller", "Mixer", "Sequencer"]
+    }
+  ]
+}
