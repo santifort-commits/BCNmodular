@@ -3,3 +3,7 @@ plugin.dll
 dist/
 *.d
 *.o
+*.svg.bak
+*_draft*
+*_esbos*
+res/drafts/
