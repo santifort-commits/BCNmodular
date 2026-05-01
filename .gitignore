@@ -7,3 +7,5 @@ dist/
 *_draft*
 *_esbos*
 res/drafts/
+*.dll
+*.vcv
