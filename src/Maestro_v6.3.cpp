@@ -444,6 +444,7 @@ struct MaestroWidget : ModuleWidget {
 
         // Fila 1
         addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 18)), module, Maestro::CLK_INPUT));
+        addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 29)), module, Maestro::RESET_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22, 18)), module, Maestro::NUM_CH_PARAM));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(34, 18)), module, Maestro::DENSITY_PARAM));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(46, 18)), module, Maestro::DENSITY_ATTV_PARAM));
@@ -452,7 +453,6 @@ struct MaestroWidget : ModuleWidget {
         addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(82, 18)), module, Maestro::ACTIVE_OUTPUT));
 
         // Fila 2
-        addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 34)), module, Maestro::RESET_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22, 34)), module, Maestro::BLOCK_PARAM));
         addInput(createInputCentered<PJ301MPort>(mm2px(Vec(34, 34)), module, Maestro::BLOCK_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(46, 34)), module, Maestro::SKIP_PARAM));

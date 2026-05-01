@@ -15,11 +15,10 @@ struct BarsParamQuantity : ParamQuantity {
 };
 
 // ParamQuantity personalitzat per DENSITY amb rang dinàmic
-struct Maestro;
-
 struct DensityParamQuantity : ParamQuantity {
-    float getMinValue() override;
-    float getMaxValue() override;
+    int* minVoicesPtr = nullptr;
+    int* numChannelsPtr = nullptr;
+
     std::string getDisplayValueString() override {
         return std::to_string((int)std::round(getValue()));
     }
@@ -44,7 +43,6 @@ struct VoltageOutputPort : PJ301MPort {
 // Camp de text editable per canal
 struct ChannelLabel : widget::OpaqueWidget {
     std::string* label = nullptr;
-    std::string defaultText = "";
     bool editing = false;
     std::string editBuffer;
 
@@ -62,7 +60,7 @@ struct ChannelLabel : widget::OpaqueWidget {
         nvgFontFaceId(args.vg, APP->window->uiFont->handle);
         nvgFillColor(args.vg, nvgRGB(200, 200, 220));
         nvgTextAlign(args.vg, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
-        std::string display = editing ? editBuffer + "_" : (label ? *label : defaultText);
+        std::string display = editing ? editBuffer + "_" : (label ? *label : "");
         nvgText(args.vg, box.size.x / 2, box.size.y / 2, display.c_str(), NULL);
     }
 
@@ -418,21 +416,6 @@ struct Maestro : Module {
     }
 };
 
-
-// Implementacions de DensityParamQuantity (necessiten Maestro complet)
-float DensityParamQuantity::getMinValue() {
-    Maestro* m = dynamic_cast<Maestro*>(module);
-    if (m) return (float)m->minVoices;
-    return 0.f;
-}
-
-float DensityParamQuantity::getMaxValue() {
-    Maestro* m = dynamic_cast<Maestro*>(module);
-    if (m) return rack::math::clamp(
-        std::round(m->params[Maestro::NUM_CH_PARAM].getValue()), 1.f, 6.f);
-    return 6.f;
-}
-
 struct MaestroWidget : ModuleWidget {
     MaestroWidget(Maestro* module) {
         setModule(module);
@@ -444,6 +427,7 @@ struct MaestroWidget : ModuleWidget {
 
         // Fila 1
         addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 18)), module, Maestro::CLK_INPUT));
+        addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 29)), module, Maestro::RESET_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22, 18)), module, Maestro::NUM_CH_PARAM));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(34, 18)), module, Maestro::DENSITY_PARAM));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(46, 18)), module, Maestro::DENSITY_ATTV_PARAM));
@@ -452,7 +436,6 @@ struct MaestroWidget : ModuleWidget {
         addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(82, 18)), module, Maestro::ACTIVE_OUTPUT));
 
         // Fila 2
-        addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 34)), module, Maestro::RESET_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22, 34)), module, Maestro::BLOCK_PARAM));
         addInput(createInputCentered<PJ301MPort>(mm2px(Vec(34, 34)), module, Maestro::BLOCK_INPUT));
         addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(46, 34)), module, Maestro::SKIP_PARAM));
@@ -464,14 +447,12 @@ struct MaestroWidget : ModuleWidget {
         for (int i = 0; i < 6; i++) {
             float y = 51.f + i * 13.f;
 
-            ChannelLabel* label = createWidget<ChannelLabel>(mm2px(Vec(4, y - 4)));
-            label->box.size = mm2px(Vec(11, 8));
             if (module) {
+                ChannelLabel* label = createWidget<ChannelLabel>(mm2px(Vec(4, y - 4)));
+                label->box.size = mm2px(Vec(11, 8));
                 label->label = &module->channelLabels[i];
-            } else {
-                label->defaultText = "CH" + std::to_string(i + 1);
+                addChild(label);
             }
-            addChild(label);
 
             addInput(createInputCentered<PJ301MPort>(mm2px(Vec(22, y)), module, Maestro::CH_INPUT_1 + i));
             addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(33, y)), module, Maestro::PROB_PARAM_1 + i));

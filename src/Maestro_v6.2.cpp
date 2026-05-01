@@ -44,7 +44,6 @@ struct VoltageOutputPort : PJ301MPort {
 // Camp de text editable per canal
 struct ChannelLabel : widget::OpaqueWidget {
     std::string* label = nullptr;
-    std::string defaultText = "";
     bool editing = false;
     std::string editBuffer;
 
@@ -62,7 +61,7 @@ struct ChannelLabel : widget::OpaqueWidget {
         nvgFontFaceId(args.vg, APP->window->uiFont->handle);
         nvgFillColor(args.vg, nvgRGB(200, 200, 220));
         nvgTextAlign(args.vg, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
-        std::string display = editing ? editBuffer + "_" : (label ? *label : defaultText);
+        std::string display = editing ? editBuffer + "_" : (label ? *label : "");
         nvgText(args.vg, box.size.x / 2, box.size.y / 2, display.c_str(), NULL);
     }
 
@@ -464,14 +463,12 @@ struct MaestroWidget : ModuleWidget {
         for (int i = 0; i < 6; i++) {
             float y = 51.f + i * 13.f;
 
-            ChannelLabel* label = createWidget<ChannelLabel>(mm2px(Vec(4, y - 4)));
-            label->box.size = mm2px(Vec(11, 8));
             if (module) {
+                ChannelLabel* label = createWidget<ChannelLabel>(mm2px(Vec(4, y - 4)));
+                label->box.size = mm2px(Vec(11, 8));
                 label->label = &module->channelLabels[i];
-            } else {
-                label->defaultText = "CH" + std::to_string(i + 1);
+                addChild(label);
             }
-            addChild(label);
 
             addInput(createInputCentered<PJ301MPort>(mm2px(Vec(22, y)), module, Maestro::CH_INPUT_1 + i));
             addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(33, y)), module, Maestro::PROB_PARAM_1 + i));
