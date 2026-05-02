@@ -11,6 +11,7 @@ jobs:
     name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
@@ -31,19 +32,26 @@ jobs:
         run: |
           curl -fsSL "${{ matrix.rack-sdk }}" -o Rack-SDK.zip
           unzip Rack-SDK.zip
-          mv Rack-SDK* Rack-SDK
+
+      - name: Find Rack SDK folder
+        shell: bash
+        run: |
+          SDK_DIR=$(find . -maxdepth 1 -name "Rack-SDK*" -type d | head -1)
+          echo "RACK_DIR=$PWD/$SDK_DIR" >> $GITHUB_ENV
+          echo "Found SDK at: $SDK_DIR"
 
       - name: Build plugin (Linux/Mac)
         if: runner.os != 'Windows'
-        run: make -j$(nproc) RACK_DIR=$PWD/Rack-SDK
+        run: make -j$(nproc) RACK_DIR=${{ env.RACK_DIR }}
 
       - name: Build plugin (Windows)
         if: runner.os == 'Windows'
         shell: bash
-        run: make -j$(nproc) RACK_DIR=$PWD/Rack-SDK
+        run: make -j$(nproc) RACK_DIR=${{ env.RACK_DIR }}
 
       - name: Package plugin
-        run: make dist RACK_DIR=$PWD/Rack-SDK
+        shell: bash
+        run: make dist RACK_DIR=${{ env.RACK_DIR }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
