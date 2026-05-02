@@ -18,8 +18,8 @@ jobs:
             rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-lin-x64.zip
             artifact: BCNmodular-lin-x64.vcvplugin
           - os: macos-latest
-            rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-mac-x64+arm64.zip
-            artifact: BCNmodular-mac-x64+arm64.vcvplugin
+            rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-mac-x64.zip
+            artifact: BCNmodular-mac-x64.vcvplugin
           - os: windows-latest
             rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-win-x64.zip
             artifact: BCNmodular-win-x64.vcvplugin
