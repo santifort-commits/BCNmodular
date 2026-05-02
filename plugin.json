@@ -15,8 +15,8 @@
     {
       "slug": "Maestro",
       "name": "Maestro",
-      "description": "Probabilistic Voice Router, Mixer & Sequencer",
-      "tags": ["Random", "Switch", "Controller", "Mixer", "Sequencer"]
+      "description": "Probabilistic Voice Router, Arranger, Mixer & Sequencer",
+      "tags": ["Arranger", "Random", "Switch", "Controller", "Mixer", "Sequencer"]
     }
   ]
 }

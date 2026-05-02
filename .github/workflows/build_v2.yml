@@ -1,0 +1,60 @@
+name: Build BCNmodular
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-lin-x64.zip
+            artifact: BCNmodular-lin-x64.vcvplugin
+          - os: macos-latest
+            rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-mac-x64+arm64.zip
+            artifact: BCNmodular-mac-x64+arm64.vcvplugin
+          - os: windows-latest
+            rack-sdk: https://vcvrack.com/downloads/Rack-SDK-2.6.6-win-x64.zip
+            artifact: BCNmodular-win-x64.vcvplugin
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Rack SDK
+        run: |
+          curl -fsSL "${{ matrix.rack-sdk }}" -o Rack-SDK.zip
+          unzip Rack-SDK.zip
+
+      - name: Find Rack SDK folder
+        shell: bash
+        run: |
+          SDK_DIR=$(find . -maxdepth 1 -name "Rack-SDK*" -type d | head -1)
+          echo "RACK_DIR=$PWD/$SDK_DIR" >> $GITHUB_ENV
+          echo "Found SDK at: $SDK_DIR"
+
+      - name: Build plugin (Linux/Mac)
+        if: runner.os != 'Windows'
+        run: make -j$(nproc) RACK_DIR=${{ env.RACK_DIR }}
+
+      - name: Build plugin (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: make -j$(nproc) RACK_DIR=${{ env.RACK_DIR }}
+
+      - name: Package plugin
+        shell: bash
+        run: make dist RACK_DIR=${{ env.RACK_DIR }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/*.vcvplugin

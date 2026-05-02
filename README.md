@@ -7,7 +7,7 @@ By Santi Fort
 
 ## Maestro
 
-**Probabilistic Voice Router, Mixer & Sequencer**
+**Probabilistic Voice Router, Arranger, Mixer & Sequencer**
 
 Maestro is an arrangement tool for VCV Rack that brings controlled randomness to your patches. Instead of building fully deterministic sequences, Maestro acts as an intelligent conductor — deciding which voices play at each moment based on weighted probability, density control, and musical timing.
 
