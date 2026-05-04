@@ -9,7 +9,7 @@ By Santi Fort
 
 **Probabilistic Voice Router, Arranger, Mixer & Sequencer**
 
-Maestro is an arrangement tool for VCV Rack that brings controlled randomness to your patches. Instead of building fully deterministic sequences, Maestro acts as an intelligent conductor — deciding which voices play at each moment based on weighted probability, density control, and musical timing.
+Maestro is an arrangement tool for VCV Rack that brings controlled randomness to your patches. Instead of building fully deterministic sequences, Maestro acts as an intelligent conductor, deciding which voices play at each moment based on weighted probability, density control, and musical timing.
 
 ### The concept
 
@@ -17,30 +17,30 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 
 ### Features
 
-- **6 independent channels** — gate/clock or audio signals
-- **Weighted probability per channel** — each channel has its own probability knob and CV input with attenuverter
-- **Density control** — set how many voices are active at once, with CV modulation and attenuverter
-- **Randomness control** — from fully deterministic (exact number of voices) to fully random (gaussian distribution)
-- **Bar-based evaluation** — evaluations happen every N bars (1, 2, 4, 8, 16), not beats
-- **Skip probability** — chance of keeping the current state instead of re-evaluating
-- **Fade In / Fade Out** — per-channel switch between Gate mode (instant) and Fade mode (0–5s)
-- **Polyphonic support** — all channels process polyphonic signals
-- **Channel labels** — editable 4-character labels per channel (double-click to edit)
-- **Active voices CV output** — CV proportional to the number of active voices
-- **Bicolor LEDs** — green = open, yellow = fading, off = closed
-- **Voltage indicator** — output jacks show signal level
+- **6 independent channels** gate/clock or audio signals
+- **Weighted probability per channel** each channel has its own probability knob and CV input with attenuverter
+- **Density control** set how many voices are active at once, with CV modulation and attenuverter
+- **Randomness control** from fully deterministic (exact number of voices) to fully random (gaussian distribution)
+- **Bar-based evaluation** evaluations happen every N bars (1, 2, 4, 8, 16), not beats
+- **Skip probability** chance of keeping the current state instead of re-evaluating
+- **Fade In / Fade Out** per-channel switch between Gate mode (instant) and Fade mode (0–5s)
+- **Polyphonic support** all channels process polyphonic signals
+- **Channel labels** editable 4-character labels per channel (double-click to edit)
+- **Active voices CV output** CV proportional to the number of active voices
+- **Bicolor LEDs** green = open, yellow = fading, off = closed
+- **Voltage indicator** output jacks show signal level
 
 ### Context menu options
 
-- **Beats per bar** — set time signature (2 to 8 beats per bar, default 4)
-- **Min active voices** — set a minimum number of active voices to prevent full silence
+- **Beats per bar** set time signature (2 to 8 beats per bar, default 4)
+- **Min active voices** set a minimum number of active voices to prevent full silence
 
 ### Controls
 
 #### Global (Row 1)
 | Control | Description |
 |---------|-------------|
-| CLOCK | Clock/trigger input — drives the beat counter |
+| CLOCK | Clock/trigger input drives the beat counter |
 | ACTIVE TRACKS | Number of channels participating in evaluation (1–6) |
 | TRACK DENS | Base number of active voices (0–6) |
 | DENS CV ATTVERT | Attenuverter for density CV (bidirectional) |
@@ -62,7 +62,7 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 | Control | Description |
 |---------|-------------|
 | LABEL | Editable 4-character channel name (double-click) |
-| INPUT | Signal input — gate, clock, or audio |
+| INPUT | Signal input, gate, clock, or audio |
 | PROB | Base probability for this channel |
 | PROB CV ATTVERT | Attenuverter for probability CV |
 | PROB CV | CV modulation for probability |
@@ -72,13 +72,13 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 
 ### Typical use cases
 
-**Arrangement tool** — Connect sequencers or voice outputs to Maestro's inputs. Use CLOCK from your master clock and set LENGTH from 1 to 16 bars. Maestro will periodically decide which voices are active, creating evolving arrangements that never repeat exactly.
+**Arrangement tool** Connect sequencers or voice outputs to Maestro's inputs. Use CLOCK from your master clock and set LENGTH from 1 to 16 bars. Maestro will periodically decide which voices are active, creating evolving arrangements that never repeat exactly.
 
-**Performance tool** — Automate DENSITY with a slow LFO, any evolving signal generator, or MIDI CC to gradually bring voices in and out. Use the attenuverter to control how much the CV affects the density in real time.
+**Performance tool** Automate DENSITY with a slow LFO, any evolving signal generator, or MIDI CC to gradually bring voices in and out. Use the attenuverter to control how much the CV affects the density in real time.
 
-**Gate sequencer** — Leave inputs unconnected (defaults to 1V) and use outputs to trigger gates, switches, or other modules. Maestro acts as a probabilistic relay.
+**Gate sequencer** Leave inputs unconnected (defaults to 1V) and use outputs to trigger gates, switches, or other modules. Maestro acts as a probabilistic relay.
 
-**Mixer** — Connect audio signals and use Fade mode with longer fade times for smooth crossfades between voices. Without input signal, the output could be used also to control an external mixer or any voltage controlled module.
+**Mixer** Connect audio signals and use Fade mode with longer fade times for smooth crossfades between voices. Without input signal, the output could be used also to control an external mixer or any voltage controlled module.
 
 ### Tips
 
@@ -104,10 +104,10 @@ make -j$(nproc)
 
 ### License
 
-GPL-3.0-or-later — see [LICENSE](LICENSE) for details.
+GPL-3.0-or-later, see [LICENSE](LICENSE) for details.
 
 ### Author
 
 Santi Fort
-BCNmodular — Barcelona, Catalonia  
+BCNmodular _ Barcelona, Catalonia  
 https://github.com/santifort-commits/BCNmodular
