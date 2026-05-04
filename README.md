@@ -43,7 +43,6 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 | Control | Description |
 |---------|-------------|
 | CLOCK | Clock/trigger input drives the beat counter |
-| RESET | Resets the bar counter to zero |
 | ACTIVE TRACKS | Number of channels participating in evaluation (1 to 6) |
 | TRACK DENS | Base number of active voices |
 | DENS CV ATTVERT | Attenuverter for density CV (bidirectional) |
@@ -54,6 +53,7 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 #### Timing (Row 2)
 | Control | Description |
 |---------|-------------|
+| RESET | Resets the bar counter to zero |
 | LENGTH | Evaluation period in bars (1, 2, 4, 8, 16) |
 | LEN CV | CV input for length (overrides knob) |
 | SKIP PROB | Probability of skipping an evaluation (0 = never, 1 = always) |
@@ -112,6 +112,6 @@ GPL-3.0-or-later, see [LICENSE](LICENSE) for details.
 
 ### Author
 
-Santi Fort
+Santi Fort _ 
 BCNmodular, Barcelona, Catalonia
 https://github.com/santifort-commits/BCNmodular
