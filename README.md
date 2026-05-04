@@ -3,7 +3,6 @@
 VCV Rack plugins by BCNmodular (Barcelona, Catalonia, SPAIN).
 
 By Santi Fort
----
 
 ## Maestro
 
@@ -23,9 +22,10 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 - **Randomness control** from fully deterministic (exact number of voices) to fully random (gaussian distribution)
 - **Bar-based evaluation** evaluations happen every N bars (1, 2, 4, 8, 16), not beats
 - **Skip probability** chance of keeping the current state instead of re-evaluating
-- **Fade In / Fade Out** per-channel switch between Gate mode (instant) and Fade mode (0–5s)
+- **Fade In / Fade Out** per-channel switch between Gate mode (instant) and Fade mode (0 to 10s)
 - **Polyphonic support** all channels process polyphonic signals
 - **Channel labels** editable 4-character labels per channel (double-click to edit)
+- **Reset input** resets the bar counter to zero for synchronization
 - **Active voices CV output** CV proportional to the number of active voices
 - **Bicolor LEDs** green = open, yellow = fading, off = closed
 - **Voltage indicator** output jacks show signal level
@@ -34,6 +34,8 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 
 - **Beats per bar** set time signature (2 to 8 beats per bar, default 4)
 - **Min active voices** set a minimum number of active voices to prevent full silence
+- **Default input voltage** select 1V (gate/trigger) or 10V (CV/audio) for unconnected inputs
+- **Active output CV mode** proportional to active tracks, or absolute (1.66V per voice)
 
 ### Controls
 
@@ -41,12 +43,13 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 | Control | Description |
 |---------|-------------|
 | CLOCK | Clock/trigger input drives the beat counter |
-| ACTIVE TRACKS | Number of channels participating in evaluation (1–6) |
-| TRACK DENS | Base number of active voices (0–6) |
+| RESET | Resets the bar counter to zero |
+| ACTIVE TRACKS | Number of channels participating in evaluation (1 to 6) |
+| TRACK DENS | Base number of active voices |
 | DENS CV ATTVERT | Attenuverter for density CV (bidirectional) |
 | DENS CV | CV input for density modulation |
 | DETERM/RANDOM | Randomness amount (left = deterministic, right = random) |
-| OUT CH. AMOUNT | CV output proportional to active voices (0–10V) |
+| OUT CH. AMOUNT | CV output proportional to active voices (0 to 10V) |
 
 #### Timing (Row 2)
 | Control | Description |
@@ -55,10 +58,10 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 | LEN CV | CV input for length (overrides knob) |
 | SKIP PROB | Probability of skipping an evaluation (0 = never, 1 = always) |
 | SKIP CV | CV input for skip probability (overrides knob) |
-| FADE IN | Fade-in time for audio channels (0–5s) |
-| FADE OUT | Fade-out time for audio channels (0–5s) |
+| FADE IN | Fade-in time for audio channels (0 to 10s) |
+| FADE OUT | Fade-out time for audio channels (0 to 10s) |
 
-#### Per channel (×6)
+#### Per channel (x6)
 | Control | Description |
 |---------|-------------|
 | LABEL | Editable 4-character channel name (double-click) |
@@ -87,6 +90,7 @@ In modular synthesis, achieving musical structure while preserving randomness ty
 - In 3/4 time, set Beats per bar to 3 in the context menu
 - Longer FADE OUT times preserve natural reverb tails when closing audio channels
 - The ACTIVE CV output can feed back into DENSITY CV (with attenuverter) for self-regulating patches
+- Use RESET to synchronize Maestro with your master clock or DAW transport
 
 ### Building from source
 
@@ -109,5 +113,5 @@ GPL-3.0-or-later, see [LICENSE](LICENSE) for details.
 ### Author
 
 Santi Fort
-BCNmodular _ Barcelona, Catalonia  
+BCNmodular, Barcelona, Catalonia
 https://github.com/santifort-commits/BCNmodular
