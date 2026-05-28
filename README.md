@@ -155,8 +155,13 @@ make -j$(nproc)
 
 GPL-3.0-or-later, see [LICENSE](LICENSE) for details.
 
+### Manual
+
+https://github.com/santifort-commits/BCNmodular/raw/main/doc/BCNmodular_Maestro_Manual_v0.pdf
+
 ### Author
 
 Santi Fort
 BCNmodular, Barcelona, Catalonia
 https://github.com/santifort-commits/BCNmodular
+Contact: bcnmodular.t36yq@aleeas.com
