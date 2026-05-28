@@ -9,3 +9,7 @@ dist/
 res/drafts/
 *.dll
 *.vcv
+plugin.hpp
+src/Maestro_v*.cpp
+src/Maestro\ -\ v*.cpp
+res/Maestro_*.svg
