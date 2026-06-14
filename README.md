@@ -125,6 +125,9 @@ Each channel has an independent mode switch:
 
 ### Changelog
 
+#### v2.1.1
+- Fixed typo "Lenght" → "Length" on panel
+
 #### v2.1.0
 - Added Trigger mode (T) per channel: sends a 10V pulse when selected
 - RGB LEDs: blue = trigger mode, white flash on trigger, green = open, yellow = fading, red = closed
