@@ -1,0 +1,137 @@
+{
+  "name": "Synthwave",
+  "category": "electronic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Synthwave style",
+  "voice_roles": [
+    "Drums",
+    "Bass",
+    "Keys",
+    "Pad",
+    "Lead",
+    "FX"
+  ],
+  "sections": [
+    {
+      "name": "Intro",
+      "density": 2,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.4,
+        0.7,
+        0.7,
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "name": "Vers",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "PreCh",
+      "density": 4,
+      "randomness": 0.1,
+      "length": 4,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        1.0,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "Choru",
+      "density": 5,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        1.0,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Brdge",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.4,
+        0.7,
+        1.0,
+        0.7,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Solo",
+      "density": 3,
+      "randomness": 0.4,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.4,
+        0.1,
+        0.4,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Choru",
+      "density": 5,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        1.0,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Outro",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.1,
+        0.1
+      ]
+    }
+  ]
+}

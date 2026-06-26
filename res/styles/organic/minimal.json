@@ -1,0 +1,137 @@
+{
+  "name": "Minimal",
+  "category": "organic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Minimal style",
+  "voice_roles": [
+    "Kick",
+    "Bass",
+    "Click",
+    "Tone",
+    "Pulse",
+    "Space"
+  ],
+  "sections": [
+    {
+      "name": "Seed",
+      "density": 1,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "+1",
+      "density": 2,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "+2",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "+3",
+      "density": 4,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "-1",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "-2",
+      "density": 2,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "-3",
+      "density": 1,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Seed",
+      "density": 1,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

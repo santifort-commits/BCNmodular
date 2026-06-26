@@ -1,0 +1,137 @@
+{
+  "name": "Prog/Symphonic Rock",
+  "category": "organic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Prog/Symphonic Rock style",
+  "voice_roles": [
+    "Drums",
+    "Bass",
+    "Keys",
+    "Strings",
+    "Guitar",
+    "Synth"
+  ],
+  "sections": [
+    {
+      "name": "Intro",
+      "density": 2,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        0.7,
+        0.4,
+        0.1,
+        0.4,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Vers",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.4,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "PreCh",
+      "density": 4,
+      "randomness": 0.2,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.4,
+        0.1
+      ]
+    },
+    {
+      "name": "Choru",
+      "density": 5,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.7,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Brdge",
+      "density": 2,
+      "randomness": 0.5,
+      "length": 8,
+      "blur": 0.3,
+      "roles": [
+        0.1,
+        0.4,
+        0.7,
+        1.0,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Solo",
+      "density": 3,
+      "randomness": 0.6,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.4,
+        0.1,
+        0.4,
+        1.0,
+        0.7
+      ]
+    },
+    {
+      "name": "Choru",
+      "density": 5,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.7,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Outro",
+      "density": 2,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        0.4,
+        0.7,
+        0.1,
+        0.7,
+        0.1,
+        0.1
+      ]
+    }
+  ]
+}

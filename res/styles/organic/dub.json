@@ -1,0 +1,137 @@
+{
+  "name": "Dub",
+  "category": "organic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Dub style",
+  "voice_roles": [
+    "Drums",
+    "Bass",
+    "Guitar",
+    "Keys",
+    "Echo",
+    "FX"
+  ],
+  "sections": [
+    {
+      "name": "Intro",
+      "density": 2,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.4,
+      "roles": [
+        1.0,
+        1.0,
+        0.1,
+        0.1,
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "name": "Vers",
+      "density": 3,
+      "randomness": 0.4,
+      "length": 8,
+      "blur": 0.3,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.4,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Drop",
+      "density": 1,
+      "randomness": 0.6,
+      "length": 4,
+      "blur": 0.5,
+      "roles": [
+        1.0,
+        0.4,
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "name": "Vers",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.3,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.4,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Echo",
+      "density": 2,
+      "randomness": 0.7,
+      "length": 8,
+      "blur": 0.6,
+      "roles": [
+        0.4,
+        0.7,
+        0.1,
+        0.1,
+        0.1,
+        1.0
+      ]
+    },
+    {
+      "name": "Vers",
+      "density": 2,
+      "randomness": 0.8,
+      "length": 8,
+      "blur": 0.7,
+      "roles": [
+        0.4,
+        0.7,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Dub",
+      "density": 1,
+      "randomness": 0.9,
+      "length": 8,
+      "blur": 0.8,
+      "roles": [
+        0.1,
+        0.4,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Fade",
+      "density": 1,
+      "randomness": 0.6,
+      "length": 8,
+      "blur": 0.7,
+      "roles": [
+        0.1,
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

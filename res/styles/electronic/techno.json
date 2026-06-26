@@ -1,0 +1,137 @@
+{
+  "name": "Techno",
+  "category": "electronic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Techno style",
+  "voice_roles": [
+    "Kick",
+    "Bass",
+    "Synth",
+    "Pad",
+    "Lead",
+    "FX"
+  ],
+  "sections": [
+    {
+      "name": "Intro",
+      "density": 1,
+      "randomness": 0.2,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "name": "Build",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 4,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.7,
+        0.4,
+        0.1,
+        0.1,
+        0.4
+      ]
+    },
+    {
+      "name": "Drop",
+      "density": 5,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.4,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Break",
+      "density": 2,
+      "randomness": 0.4,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.0,
+        0.1,
+        1.0,
+        0.7,
+        0.4,
+        0.1
+      ]
+    },
+    {
+      "name": "Build",
+      "density": 3,
+      "randomness": 0.2,
+      "length": 4,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        0.7,
+        0.4,
+        0.1,
+        0.1,
+        0.4
+      ]
+    },
+    {
+      "name": "Drop",
+      "density": 6,
+      "randomness": 0.1,
+      "length": 8,
+      "blur": 0.1,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "name": "Brkdn",
+      "density": 1,
+      "randomness": 0.5,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.0,
+        0.0,
+        1.0,
+        0.7,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Outro",
+      "density": 2,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        1.0,
+        0.7,
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ]
+    }
+  ]
+}

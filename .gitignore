@@ -9,9 +9,10 @@ dist/
 res/drafts/
 *.dll
 *.vcv
-plugin.hpp
 src/Maestro_v*.cpp
 src/Maestro\ -\ v*.cpp
+src/SomeStructure_v*.cpp
 res/Maestro_*.svg
 BCNmodular.code-workspace
 src/Director*.cpp
+per_compilar.txt

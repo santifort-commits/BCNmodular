@@ -1,0 +1,137 @@
+{
+  "name": "IDM/Experimental",
+  "category": "electronic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "IDM/Experimental style",
+  "voice_roles": [
+    "Glitch",
+    "Bass",
+    "Synth",
+    "Noise",
+    "Lead",
+    "FX"
+  ],
+  "sections": [
+    {
+      "name": "Gltch",
+      "density": 2,
+      "randomness": 0.8,
+      "length": 2,
+      "blur": 0.5,
+      "roles": [
+        1.0,
+        0.1,
+        0.4,
+        0.7,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Frag",
+      "density": 3,
+      "randomness": 0.9,
+      "length": 1,
+      "blur": 0.6,
+      "roles": [
+        0.7,
+        0.4,
+        0.7,
+        1.0,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "name": "Ptrn",
+      "density": 4,
+      "randomness": 0.6,
+      "length": 4,
+      "blur": 0.4,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.4,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Chaos",
+      "density": 5,
+      "randomness": 0.9,
+      "length": 2,
+      "blur": 0.7,
+      "roles": [
+        0.7,
+        0.4,
+        1.0,
+        1.0,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "name": "Rslv",
+      "density": 3,
+      "randomness": 0.5,
+      "length": 4,
+      "blur": 0.3,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.1,
+        0.4,
+        0.1
+      ]
+    },
+    {
+      "name": "Gltch",
+      "density": 2,
+      "randomness": 0.8,
+      "length": 2,
+      "blur": 0.6,
+      "roles": [
+        1.0,
+        0.1,
+        0.4,
+        0.7,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Loop",
+      "density": 4,
+      "randomness": 0.4,
+      "length": 8,
+      "blur": 0.3,
+      "roles": [
+        1.0,
+        0.7,
+        0.7,
+        0.4,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "Diss",
+      "density": 2,
+      "randomness": 0.9,
+      "length": 4,
+      "blur": 0.8,
+      "roles": [
+        0.4,
+        0.1,
+        0.4,
+        0.7,
+        0.4,
+        1.0
+      ]
+    }
+  ]
+}

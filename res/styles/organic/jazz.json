@@ -1,0 +1,137 @@
+{
+  "name": "Jazz",
+  "category": "organic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Jazz style",
+  "voice_roles": [
+    "Drums",
+    "Bass",
+    "Piano",
+    "Horns",
+    "Guitar",
+    "Sax"
+  ],
+  "sections": [
+    {
+      "name": "HdIn",
+      "density": 3,
+      "randomness": 0.4,
+      "length": 8,
+      "blur": 0.3,
+      "roles": [
+        0.7,
+        1.0,
+        0.7,
+        0.4,
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "Head",
+      "density": 4,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "SolA",
+      "density": 3,
+      "randomness": 0.7,
+      "length": 8,
+      "blur": 0.4,
+      "roles": [
+        0.7,
+        1.0,
+        0.1,
+        0.1,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "SolB",
+      "density": 3,
+      "randomness": 0.8,
+      "length": 8,
+      "blur": 0.5,
+      "roles": [
+        0.7,
+        1.0,
+        0.1,
+        0.1,
+        0.4,
+        1.0
+      ]
+    },
+    {
+      "name": "SolA",
+      "density": 3,
+      "randomness": 0.6,
+      "length": 8,
+      "blur": 0.4,
+      "roles": [
+        0.7,
+        1.0,
+        0.1,
+        0.1,
+        1.0,
+        0.4
+      ]
+    },
+    {
+      "name": "Shout",
+      "density": 5,
+      "randomness": 0.5,
+      "length": 4,
+      "blur": 0.3,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        1.0,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "name": "HdOut",
+      "density": 4,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.2,
+      "roles": [
+        1.0,
+        1.0,
+        0.7,
+        0.7,
+        0.7,
+        0.4
+      ]
+    },
+    {
+      "name": "Outro",
+      "density": 2,
+      "randomness": 0.5,
+      "length": 4,
+      "blur": 0.4,
+      "roles": [
+        0.4,
+        1.0,
+        0.1,
+        0.1,
+        0.4,
+        0.1
+      ]
+    }
+  ]
+}

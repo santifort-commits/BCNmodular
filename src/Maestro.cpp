@@ -164,6 +164,9 @@ struct Maestro : Module {
     float defaultInputVoltage = 1.f;
     bool activeOutProportional = true;
 
+    bool pendingEvaluate = false; // avaluació programada per al seguent sample
+    int voiceSelectMode = 1; // 0=Loose (w^1), 1=Normal (w^2), 2=Hard (w^3)
+
     // Nous parametres v7
     bool skipBinary = false;        // false=probabilistic, true=binary
     bool skipPerChannel = false;    // false=global, true=per canal
@@ -184,7 +187,7 @@ struct Maestro : Module {
         configParam<DensityParamQuantity>(DENSITY_PARAM, 0.f, 6.f, 3.f, "Track density", " voices");
         getParamQuantity(DENSITY_PARAM)->snapEnabled = true;
 
-        configParam(DENSITY_ATTV_PARAM, -1.f, 1.f, 0.f, "Density CV attenuverter");
+        configParam(DENSITY_ATTV_PARAM, 0.f, 1.f, 0.f, "Track Density CV crossfade (Knob↔CV)");
         configParam(RESTRICT_PARAM, 0.f, 1.f, 0.f, "Randomness");
 
         configParam<BarsParamQuantity>(BLOCK_PARAM, 0.f, 4.f, 0.f, "Length");
@@ -196,7 +199,7 @@ struct Maestro : Module {
 
         for (int i = 0; i < MAX_CH; i++) {
             configParam(PROB_PARAM_1 + i, 0.f, 1.f, 0.5f, "Probability");
-            configParam(PROB_ATTV_PARAM_1 + i, -1.f, 1.f, 0.f, "Prob CV attenuverter");
+            configParam(PROB_ATTV_PARAM_1 + i, 0.f, 1.f, 0.f, "Prob CV crossfade (Knob↔CV)");
             // T=0, G=1, F=2
             configSwitch(FADE_SWITCH_1 + i, 0.f, 2.f, 1.f, "Mode", {"Trigger", "Gate", "Fade"});
             configInput(CH_INPUT_1 + i, "Channel");
@@ -248,9 +251,20 @@ struct Maestro : Module {
         for (int i = 0; i < numChannels; i++) {
             float knob = params[PROB_PARAM_1 + i].getValue();
             float attv = params[PROB_ATTV_PARAM_1 + i].getValue();
-            float cv = inputs[PROB_INPUT_1 + i].isConnected() ?
-                       inputs[PROB_INPUT_1 + i].getVoltage() / 10.f * attv : 0.f;
-            weights[i] = rack::math::clamp(knob + cv, 0.f, 1.f);
+            float w;
+            if (inputs[PROB_INPUT_1 + i].isConnected()) {
+                // Crossfade entre knob i CV segons attv
+                // attv=0 → knob mana, attv=1 → CV mana
+                float cvValue = inputs[PROB_INPUT_1 + i].getVoltage() / 10.f;
+                w = rack::math::clamp(knob * (1.f - attv) + cvValue * attv, 0.f, 1.f);
+            } else {
+                // Sense CV: el knob mana sol
+                w = knob;
+            }
+            // Aplicar exponent segons mode de selecció
+            // Loose=w^1, Normal=w^2, Hard=w^3
+            float exp = (float)(voiceSelectMode + 1);
+            weights[i] = std::pow(w, exp);
         }
 
         bool selected[MAX_CH] = {};
@@ -308,19 +322,24 @@ struct Maestro : Module {
         lastReset = reset;
         if (resetRise) {
             if (resetForceEval) {
-                // Forcar avaluació immediata sense reiniciar el comptador
-                int numChannels = (int)rack::math::clamp(
-                    std::round(params[NUM_CH_PARAM].getValue()), 1.f, 6.f);
-                float densityKnob = params[DENSITY_PARAM].getValue();
-                float attv = params[DENSITY_ATTV_PARAM].getValue();
-                float densityCV = inputs[DENSITY_INPUT].isConnected() ?
-                                  inputs[DENSITY_INPUT].getVoltage() / 10.f * 6.f * attv : 0.f;
-                float densityTarget = rack::math::clamp(
-                    std::round(densityKnob + densityCV), 0.f, (float)numChannels);
-                evaluate(numChannels, densityTarget, params[RESTRICT_PARAM].getValue());
+                // Programar avaluació al seguent sample (CVs estabilitzats)
+                pendingEvaluate = true;
             } else {
                 beatCount = 0;
             }
+        }
+
+        // Executar avaluació programada (valors ja estabilitzats)
+        if (pendingEvaluate) {
+            pendingEvaluate = false;
+            int numCh = (int)rack::math::clamp(
+                std::round(params[NUM_CH_PARAM].getValue()), 1.f, 6.f);
+            float attv = params[DENSITY_ATTV_PARAM].getValue();
+            float densKnob = params[DENSITY_PARAM].getValue();
+            float cvValue = inputs[DENSITY_INPUT].getVoltage() / 10.f * 6.f;
+            float dt = rack::math::clamp(
+                std::round(densKnob * (1.f - attv) + cvValue * attv), 0.f, (float)numCh);
+            evaluate(numCh, dt, params[RESTRICT_PARAM].getValue());
         }
 
         // CLOCK
@@ -355,11 +374,17 @@ struct Maestro : Module {
 
                 float densityKnob = params[DENSITY_PARAM].getValue();
                 float attv = params[DENSITY_ATTV_PARAM].getValue();
-                float densityCV = inputs[DENSITY_INPUT].isConnected() ?
-                                  inputs[DENSITY_INPUT].getVoltage() / 10.f * 6.f * attv : 0.f;
-                float densityTarget = rack::math::clamp(
-                    std::round(densityKnob + densityCV), 0.f, (float)numChannels);
-                evaluate(numChannels, densityTarget, params[RESTRICT_PARAM].getValue());
+                float densityTarget;
+                if (inputs[DENSITY_INPUT].isConnected()) {
+                    // Crossfade entre knob i CV segons attv
+                    // attv=0 → knob mana, attv=1 → CV mana
+                    float cvValue = inputs[DENSITY_INPUT].getVoltage() / 10.f * 6.f;
+                    float crossfaded = densityKnob * (1.f - attv) + cvValue * attv;
+                    densityTarget = rack::math::clamp(std::round(crossfaded), 0.f, (float)numChannels);
+                } else {
+                    densityTarget = rack::math::clamp(densityKnob, 0.f, (float)numChannels);
+                }
+                pendingEvaluate = true; // avaluar al seguent sample (CVs estabilitzats)
             }
         }
 
@@ -486,6 +511,7 @@ struct Maestro : Module {
         json_object_set_new(rootJ, "channelLabels", labelsJ);
         json_object_set_new(rootJ, "minVoices", json_integer(minVoices));
         json_object_set_new(rootJ, "beatsPerBar", json_integer(beatsPerBar));
+        json_object_set_new(rootJ, "voiceSelectMode", json_integer(voiceSelectMode));
         json_object_set_new(rootJ, "defaultInputVoltage", json_real(defaultInputVoltage));
         json_object_set_new(rootJ, "activeOutProportional", json_boolean(activeOutProportional));
         json_object_set_new(rootJ, "skipBinary", json_boolean(skipBinary));
@@ -507,6 +533,8 @@ struct Maestro : Module {
         if (minVoicesJ) minVoices = json_integer_value(minVoicesJ);
         json_t* beatsPerBarJ = json_object_get(rootJ, "beatsPerBar");
         if (beatsPerBarJ) beatsPerBar = json_integer_value(beatsPerBarJ);
+        json_t* vsmJ = json_object_get(rootJ, "voiceSelectMode");
+        if (vsmJ) voiceSelectMode = json_integer_value(vsmJ);
         json_t* defaultInputVoltageJ = json_object_get(rootJ, "defaultInputVoltage");
         if (defaultInputVoltageJ) defaultInputVoltage = (float)json_real_value(defaultInputVoltageJ);
         json_t* activeOutProportionalJ = json_object_get(rootJ, "activeOutProportional");
@@ -594,6 +622,27 @@ struct MaestroWidget : ModuleWidget {
     void appendContextMenu(Menu* menu) override {
         Maestro* module = dynamic_cast<Maestro*>(this->module);
         if (!module) return;
+
+        menu->addChild(new MenuSeparator);
+
+        // Voice selection
+        menu->addChild(createSubmenuItem("Prob CV crossfade mode",
+            (module->voiceSelectMode == 0 ? "Loose" : module->voiceSelectMode == 1 ? "Normal" : "Hard"),
+            [=](Menu* menu) {
+                menu->addChild(createCheckMenuItem("Loose", "",
+                    [=]() { return module->voiceSelectMode == 0; },
+                    [=]() { module->voiceSelectMode = 0; }
+                ));
+                menu->addChild(createCheckMenuItem("Normal", "",
+                    [=]() { return module->voiceSelectMode == 1; },
+                    [=]() { module->voiceSelectMode = 1; }
+                ));
+                menu->addChild(createCheckMenuItem("Hard", "",
+                    [=]() { return module->voiceSelectMode == 2; },
+                    [=]() { module->voiceSelectMode = 2; }
+                ));
+            }
+        ));
 
         menu->addChild(new MenuSeparator);
 

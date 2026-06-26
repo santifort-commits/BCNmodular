@@ -1,0 +1,137 @@
+{
+  "name": "Ambient",
+  "category": "organic",
+  "author": "BCNmodular",
+  "version": "1.2",
+  "description": "Ambient style",
+  "voice_roles": [
+    "Texture",
+    "Drone",
+    "Pad",
+    "Bells",
+    "Atmos",
+    "FX"
+  ],
+  "sections": [
+    {
+      "name": "Emrg",
+      "density": 1,
+      "randomness": 0.6,
+      "length": 8,
+      "blur": 0.7,
+      "roles": [
+        0.1,
+        0.1,
+        0.4,
+        0.1,
+        0.1,
+        1.0
+      ]
+    },
+    {
+      "name": "Lyr1",
+      "density": 2,
+      "randomness": 0.5,
+      "length": 8,
+      "blur": 0.6,
+      "roles": [
+        0.4,
+        0.1,
+        1.0,
+        0.1,
+        0.1,
+        0.7
+      ]
+    },
+    {
+      "name": "Lyr2",
+      "density": 3,
+      "randomness": 0.4,
+      "length": 8,
+      "blur": 0.6,
+      "roles": [
+        0.7,
+        0.4,
+        1.0,
+        0.4,
+        0.1,
+        0.7
+      ]
+    },
+    {
+      "name": "Peak",
+      "density": 4,
+      "randomness": 0.3,
+      "length": 8,
+      "blur": 0.5,
+      "roles": [
+        0.7,
+        0.7,
+        1.0,
+        1.0,
+        0.4,
+        0.7
+      ]
+    },
+    {
+      "name": "Drift",
+      "density": 3,
+      "randomness": 0.6,
+      "length": 8,
+      "blur": 0.7,
+      "roles": [
+        0.4,
+        0.4,
+        1.0,
+        0.7,
+        0.1,
+        0.7
+      ]
+    },
+    {
+      "name": "Fade",
+      "density": 2,
+      "randomness": 0.5,
+      "length": 8,
+      "blur": 0.7,
+      "roles": [
+        0.1,
+        0.1,
+        0.7,
+        0.4,
+        0.1,
+        1.0
+      ]
+    },
+    {
+      "name": "Diss",
+      "density": 1,
+      "randomness": 0.7,
+      "length": 8,
+      "blur": 0.8,
+      "roles": [
+        0.0,
+        0.0,
+        0.4,
+        0.1,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Slnc",
+      "density": 1,
+      "randomness": 0.8,
+      "length": 8,
+      "blur": 0.9,
+      "roles": [
+        0.0,
+        0.0,
+        0.1,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

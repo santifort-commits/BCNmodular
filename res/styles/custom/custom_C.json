@@ -1,0 +1,137 @@
+{
+  "name": "Custom C",
+  "category": "custom",
+  "author": "User",
+  "version": "1.0",
+  "description": "Custom style - edit freely",
+  "voice_roles": [
+    "CH1",
+    "CH2",
+    "CH3",
+    "CH4",
+    "CH5",
+    "CH6"
+  ],
+  "sections": [
+    {
+      "name": "Sec1",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec2",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec3",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec4",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec5",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec6",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec7",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "name": "Sec8",
+      "density": 3,
+      "randomness": 0.3,
+      "length": 4,
+      "blur": 0.2,
+      "roles": [
+        0.7,
+        0.7,
+        0.5,
+        0.5,
+        0.1,
+        0.1
+      ]
+    }
+  ]
+}
