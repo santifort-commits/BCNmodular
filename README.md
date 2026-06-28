@@ -356,7 +356,7 @@ GPL-3.0-or-later, see [LICENSE](LICENSE) for details.
 
 ## Manual
 
-[BCNmodular Manual (PDF)](https://github.com/santifort-commits/BCNmodular/raw/main/doc/BCNmodular_Maestro_Manual_v0.pdf)
+[BCNmodular Manual (PDF)](https://github.com/santifort-commits/BCNmodular/raw/main/doc/BCNmodular_Maestro_SomeStructure_Manual_v1.pdf)
 
 ---
 
